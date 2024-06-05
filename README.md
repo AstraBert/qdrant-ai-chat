@@ -9,11 +9,11 @@ In this repository lies the [code](./app.py) to build a RAG-based assistant, exp
 	<p><i>Image by <a href="https://pollinations.ai/">Pollinations AI</a></i></p>
 </div>
 
-### 0. Choose your objective
+## 0. Choose your objective
 
 The first thing to start building is to actually _know_ what you are going to build. In this repository, we will be using [climatebert's TCFD recommendations dataset](https://huggingface.co/datasets/climatebert/tcfd_recommendations), in order to create a climate financial disclosure counselor that will be able to guide us in the wonders and dangers of climate investments and safety.
 
-### 1. Find a database
+## 1. Find a database
 
 To implement RAG (*Retrieval-Augmented Generation*), we need to first find a database provider that will host our knowledge base.
 
@@ -22,17 +22,17 @@ A possible solution, simple, elegant and fast, which offers up to 1GB of disk sp
 So you have to:
 
 1. [Register](https://qdrant.tech/pricing/) to Qdrant Cloud services
-2. Create your firs cluster
+2. Create your first cluster
 3. Retrieve the API key and the URL of the endpoint for your cluster
 
-### 2. Upload your data
+## 2. Upload your data
 
-There are various way to upload your data, one can be found in [this Gist I wrote](https://gist.github.com/AstraBert/ff4bff338d4346718ae6c2d77ea2d71f), where I load data from the above mentioned HF dataset and, exploiting [Jina AI's jina-embeddings-v2-base-en encoder](https://huggingface.co/jinaai/jina-embeddings-v2-base-en), I encode them into 768-dimensional vectors, that are sent to my Qdrant cluster along with the actual Natural Language text.
+There are various ways to upload your data, one can be found in [this Gist I created for the purpose](https://gist.github.com/AstraBert/ff4bff338d4346718ae6c2d77ea2d71f), where I load data from the above mentioned HF dataset and, exploiting [Jina AI's jina-embeddings-v2-base-en encoder](https://huggingface.co/jinaai/jina-embeddings-v2-base-en), I encode them into 768-dimensional vectors, that are sent to my Qdrant cluster along with the actual Natural Language text.
 
-The so-created database is then available for search, you just need to have the same encoder [loaded in your script](./load_encoder.py) and to define some searching functions (I created a class, `NeuralSearcher`, in [utils.py](./utils.py)).
+The so-created database is then available for vector search, you just need to have the same encoder [loaded in your script](./load_encoder.py) and to define some searching functions (I created a class, `NeuralSearcher`, in [utils.py](./utils.py)).
 
-### 3. Build the application
-Prior to building the application, consider to download all the needed dependencies with:
+## 3. Build the application
+Prior to building the application, consider downloading all the needed dependencies with:
 
 ```bash
 python3 -m pip install requirements.txt
@@ -52,4 +52,17 @@ The LLM we are exploiting is Phi-3-mini-128K, queried via HF Spaces API offered 
 
 Everything is then smoothly rendered with a custom front-end theme, that you can find [here](https://huggingface.co/spaces/JohnSmith9982/small_and_pretty).
 
-## Ready to build amazing apps? Your turn!🚀
+## Wanna see a demo?
+
+Chat with my space here:
+
+<div align="center">
+	<iframe
+		src="https://as-cle-bert-tcfd-counselor.hf.space"
+		frameborder="0"
+		width="850"
+		height="450"
+	></iframe>
+</div>
+
+## And now it's your turn! Ready to build amazing AI-powered apps?🚀
