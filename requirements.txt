@@ -1,0 +1,4 @@
+qdrant_client==1.9.1
+sentence_transformers==3.0.0
+gradio_client==0.17.0
+python-dotenv==1.0.1
