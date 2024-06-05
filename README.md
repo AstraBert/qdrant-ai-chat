@@ -4,6 +4,11 @@
 
 In this repository lies the [code](./app.py) to build a RAG-based assistant, exploiting Qdrant and Hugging Face Spaces API.
 
+<div align="center">
+	<a href="https://huggingface.co/spaces/as-cle-bert/tcfd_counselor"><img src="./imgs/consulting_robot.jpg"></a>	
+	<p><i>Image by <a href="https://pollinations.ai/">Pollinations AI</a></i></p>
+</div>
+
 ### 0. Choose your objective
 
 The first thing to start building is to actually _know_ what you are going to build. In this repository, we will be using [climatebert's TCFD recommendations dataset](https://huggingface.co/datasets/climatebert/tcfd_recommendations), in order to create a climate financial disclosure counselor that will be able to guide us in the wonders and dangers of climate investments and safety.
@@ -36,6 +41,8 @@ python3 -m pip install requirements.txt
 We build the application exploiting [Gradio](https://gradio.app), a popular front-end rendering library for python and JS. 
 
 All the code can be found in [app.py](./app.py).
+
+First of all, we save all our crucial but sensitive variables in a `.env` file (an example can be found [here](./.env.example)).
 
 With Gradio, we create a simple ChatBot interface, where the conversation will be displayed. 
 
